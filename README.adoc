@@ -8,6 +8,8 @@ A beautiful app for your parkomat.
 
 == Installation ==
 
-The app is not (yet?) available on the stores yet, so you have to follow the the guides from the flutter guys for
+The app is not (yet?) available on the stores yet, so you have to follow the guides from the flutter guys for
 link:https://flutter.dev/docs/get-started/install/macos[mac], link:https://flutter.dev/docs/get-started/install/linux[linux]
 and link:https://flutter.dev/docs/get-started/install/windows[windows].
+
+For better performace use the `--release` flag for `flutter run` -> `flutter run --release`
