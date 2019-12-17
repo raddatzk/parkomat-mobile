@@ -1,0 +1,16 @@
+{
+  "couldNotConnect": "Konnte keine Verbindung aufbauen",
+  "couldNotGetStats": "Konnte keine Daten abrufen",
+  "lastMonth": "Letzten Monat",
+  "lastUpdated": "Letztes Update: ",
+  "lastWeek": "Letzte Woche",
+  "lastYear": "Letztes Jahr",
+  "one": "einer",
+  "oneStandard": "ein normaler",
+  "onTheLifts": "auf der Hebebühne",
+  "parkingSpots": "Parkplätze",
+  "standard": "normale",
+  "today": "Heute",
+  "urlToParkomat": "URL zum Parkomat",
+  "yesterday": "Gestern"
+}

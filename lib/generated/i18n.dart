@@ -13,67 +13,68 @@ class S implements WidgetsLocalizations {
 
   static S current;
 
-  static const GeneratedLocalizationsDelegate delegate = GeneratedLocalizationsDelegate();
+  static const GeneratedLocalizationsDelegate delegate =
+    GeneratedLocalizationsDelegate();
 
   static S of(BuildContext context) => Localizations.of<S>(context, S);
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
-  String get lastUpdated => "Last updated: ";
-  String get parkingSpots => "Parking spots";
-  String get oneStandard => "one standard";
-  String get standard => "standard";
-  String get one => "one";
-  String get onTheLifts => "on the lifts";
-  String get urlToParkomat => "URL to your parkomat";
   String get couldNotConnect => "Could not connect to parkomat";
   String get couldNotGetStats => "Could not fetch stats from parkomat";
-  String get today => "Today";
-  String get yesterday => "Yesterday";
-  String get lastWeek => "Last week";
   String get lastMonth => "Last month";
+  String get lastUpdated => "Last updated: ";
+  String get lastWeek => "Last week";
   String get lastYear => "LastYear";
+  String get onTheLifts => "on the lifts";
+  String get one => "one";
+  String get oneStandard => "one standard";
+  String get parkingSpots => "Parking spots";
+  String get standard => "standard";
+  String get today => "Today";
+  String get urlToParkomat => "URL to your parkomat";
+  String get yesterday => "Yesterday";
 }
 
-class $en extends S {
-  const $en();
-}
-
-class $de_DE extends S {
-  const $de_DE();
+class $de extends S {
+  const $de();
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
   @override
-  String get lastUpdated => "Letztes Update: ";
-  @override
-  String get parkingSpots => "Parkplätze";
-  @override
-  String get oneStandard => "ein normaler";
-  @override
   String get standard => "normale";
-  @override
-  String get one => "einer";
-  @override
-  String get onTheLifts => "auf der Hebebühne";
-  @override
-  String get urlToParkomat => "URL zum Parkomat";
-  @override
-  String get couldNotConnect => "Konnte keine Verbindung aufbauen";
   @override
   String get couldNotGetStats => "Konnte keine Daten abrufen";
   @override
-  String get today => "Heute";
+  String get one => "einer";
   @override
-  String get yesterday => "Gestern";
-  @override
-  String get lastWeek => "Letzte Woche";
+  String get couldNotConnect => "Konnte keine Verbindung aufbauen";
   @override
   String get lastMonth => "Letzten Monat";
   @override
+  String get oneStandard => "ein normaler";
+  @override
+  String get lastWeek => "Letzte Woche";
+  @override
+  String get yesterday => "Gestern";
+  @override
+  String get lastUpdated => "Letztes Update: ";
+  @override
+  String get onTheLifts => "auf der Hebebühne";
+  @override
   String get lastYear => "Letztes Jahr";
+  @override
+  String get today => "Heute";
+  @override
+  String get parkingSpots => "Parkplätze";
+  @override
+  String get urlToParkomat => "URL zum Parkomat";
+}
+
+class $en extends S {
+  const $en();
 }
 
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
@@ -81,8 +82,8 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
+      Locale("de", ""),
       Locale("en", ""),
-      Locale("de", "DE"),
     ];
   }
 
@@ -107,14 +108,14 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
     final String lang = getLang(locale);
     if (lang != null) {
       switch (lang) {
+        case "de":
+          S.current = const $de();
+          return SynchronousFuture<S>(S.current);
         case "en":
           S.current = const $en();
           return SynchronousFuture<S>(S.current);
-        case "de_DE":
-          S.current = const $de_DE();
-          return SynchronousFuture<S>(S.current);
         default:
-        // NO-OP.
+          // NO-OP.
       }
     }
     S.current = const S();
@@ -172,4 +173,8 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
   }
 }
 
-String getLang(Locale l) => l == null ? null : l.countryCode != null && l.countryCode.isEmpty ? l.languageCode : l.toString();
+String getLang(Locale l) => l == null
+  ? null
+  : l.countryCode != null && l.countryCode.isEmpty
+    ? l.languageCode
+    : l.toString();
