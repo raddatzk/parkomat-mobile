@@ -1,0 +1,13 @@
+= Parkom.at =
+
+A beautiful app for your parkomat.
+
+== Features ==
+
+- [x] Well, shows how many parking spots are free
+
+== Installation ==
+
+The app is not (yet?) available on the stores yet, so you have to follow the the guides from the flutter guys for
+link:https://flutter.dev/docs/get-started/install/macos[mac], link:https://flutter.dev/docs/get-started/install/linux[linux]
+and link:https://flutter.dev/docs/get-started/install/windows[windows].
