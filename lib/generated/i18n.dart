@@ -29,6 +29,11 @@ class S implements WidgetsLocalizations {
   String get urlToParkomat => "URL to your parkomat";
   String get couldNotConnect => "Could not connect to parkomat";
   String get couldNotGetStats => "Could not fetch stats from parkomat";
+  String get today => "Today";
+  String get yesterday => "Yesterday";
+  String get lastWeek => "Last week";
+  String get lastMonth => "Last month";
+  String get lastYear => "LastYear";
 }
 
 class $en extends S {
@@ -59,6 +64,16 @@ class $de_DE extends S {
   String get couldNotConnect => "Konnte keine Verbindung aufbauen";
   @override
   String get couldNotGetStats => "Konnte keine Daten abrufen";
+  @override
+  String get today => "Heute";
+  @override
+  String get yesterday => "Gestern";
+  @override
+  String get lastWeek => "Letzte Woche";
+  @override
+  String get lastMonth => "Letzten Monat";
+  @override
+  String get lastYear => "Letztes Jahr";
 }
 
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
