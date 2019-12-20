@@ -33,7 +33,7 @@ class ParkomatApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("en", "")),
+      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("en", ""), withCountry: false),
       theme: ThemeData(
         brightness: Brightness.dark,
         toggleableActiveColor: Colors.limeAccent,
