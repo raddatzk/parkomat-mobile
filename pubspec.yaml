@@ -26,6 +26,7 @@ dependencies:
   intl: 0.16.0
   sprintf: 4.0.2
   jiffy: 2.1.2
+  share: ^0.6.3+5
   inject:
     git:
       url: https://github.com/google/inject.dart.git

@@ -12,5 +12,8 @@
   "standard": "normale",
   "today": "Heute",
   "urlToParkomat": "URL zum Parkomat",
-  "yesterday": "Gestern"
+  "yesterday": "Gestern",
+  "statsDescription": "$normal und $lift",
+  "statsShareTitle": "Es gibt $number freie Parkplätze.",
+  "yourParkomat": "\nMit freundlichen Grüßen -- dein Parkomat."
 }

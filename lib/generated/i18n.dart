@@ -13,8 +13,7 @@ class S implements WidgetsLocalizations {
 
   static S current;
 
-  static const GeneratedLocalizationsDelegate delegate =
-    GeneratedLocalizationsDelegate();
+  static const GeneratedLocalizationsDelegate delegate = GeneratedLocalizationsDelegate();
 
   static S of(BuildContext context) => Localizations.of<S>(context, S);
 
@@ -35,6 +34,9 @@ class S implements WidgetsLocalizations {
   String get today => "Today";
   String get urlToParkomat => "URL to your parkomat";
   String get yesterday => "Yesterday";
+  String get yourParkomat => "\nScincerly -- your parkomat.";
+  String statsDescription(String normal, String lift) => "$normal and $lift";
+  String statsShareTitle(String number) => "There are $number free parking spots.";
 }
 
 class $de extends S {
@@ -54,6 +56,8 @@ class $de extends S {
   @override
   String get lastMonth => "Letzten Monat";
   @override
+  String get yourParkomat => "\nMit freundlichen Grüßen -- dein Parkomat.";
+  @override
   String get oneStandard => "ein normaler";
   @override
   String get lastWeek => "Letzte Woche";
@@ -71,6 +75,10 @@ class $de extends S {
   String get parkingSpots => "Parkplätze";
   @override
   String get urlToParkomat => "URL zum Parkomat";
+  @override
+  String statsShareTitle(String number) => "Es gibt $number freie Parkplätze.";
+  @override
+  String statsDescription(String normal, String lift) => "$normal und $lift";
 }
 
 class $en extends S {
@@ -115,7 +123,7 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
           S.current = const $en();
           return SynchronousFuture<S>(S.current);
         default:
-          // NO-OP.
+        // NO-OP.
       }
     }
     S.current = const S();
@@ -173,8 +181,4 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
   }
 }
 
-String getLang(Locale l) => l == null
-  ? null
-  : l.countryCode != null && l.countryCode.isEmpty
-    ? l.languageCode
-    : l.toString();
+String getLang(Locale l) => l == null ? null : l.countryCode != null && l.countryCode.isEmpty ? l.languageCode : l.toString();

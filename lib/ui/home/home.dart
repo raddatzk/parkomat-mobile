@@ -6,6 +6,7 @@ import 'package:parkomat/widget/connectivity_indicator.dart';
 import 'package:parkomat/widget/parkomat_body.dart';
 import 'package:parkomat/widget/parkomat_footer.dart';
 import 'package:parkomat/widget/parkomat_header.dart';
+import 'package:parkomat/widget/share_button.dart';
 
 class HomeScreen extends StatefulWidget {
   final MainBloc _bloc = appComponent.mainBloc;
@@ -33,12 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     widget._bloc.add(SetBaseUrlMainEvent(context, true));
                   }
                   if (state is LoadedMainState) {
-                    return Column(
+                    return Stack(
                       children: <Widget>[
-                        ParkomatHeader(),
-                        ParkomatBody(state),
-                        Expanded(child: Container()),
-                        ParkomatFooter(state),
+                        ShareButton(state),
+                        Column(
+                          children: <Widget>[
+                            ParkomatHeader(),
+                            ParkomatBody(state),
+                            Expanded(child: Container()),
+                            ParkomatFooter(state),
+                          ],
+                        ),
                       ],
                     );
                   }
