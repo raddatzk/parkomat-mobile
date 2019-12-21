@@ -16,11 +16,11 @@ String statsShareTitle(FreeSpotStatistics stats, BuildContext context) {
 }
 
 String _liftStatsDescription(int freeLiftSpots, BuildContext context) {
-  return sprintf("%d %s", [freeLiftSpots, S.of(context).standard]);
+  return sprintf("%d %s", [freeLiftSpots, S.of(context).onTheLifts]);
 }
 
 String _normalStatsDescription(int freeNormalSpots, BuildContext context) {
-  return sprintf("%d %s", [freeNormalSpots, S.of(context).onTheLifts]);
+  return sprintf("%d %s", [freeNormalSpots, S.of(context).standard]);
 }
 
 String statsDescription(FreeSpotStatistics stats, BuildContext context) {
@@ -32,7 +32,7 @@ String statsDescription(FreeSpotStatistics stats, BuildContext context) {
   } else if (freeNormalSpots == 1) {
     freeNormalSpotsDetails = S.of(context).oneStandard;
   } else {
-    freeNormalSpotsDetails = _liftStatsDescription(freeLiftSpots, context);
+    freeNormalSpotsDetails = _normalStatsDescription(freeLiftSpots, context);
   }
   String freeLiftSpotsDetails;
   if (freeLiftSpots == 0) {
@@ -40,7 +40,7 @@ String statsDescription(FreeSpotStatistics stats, BuildContext context) {
   } else if (freeLiftSpots == 1) {
     freeLiftSpotsDetails = S.of(context).one;
   } else {
-    freeLiftSpotsDetails = _normalStatsDescription(freeNormalSpots, context);
+    freeLiftSpotsDetails = _liftStatsDescription(freeNormalSpots, context);
   }
 
   return S.of(context).statsDescription(freeNormalSpotsDetails, freeLiftSpotsDetails);
