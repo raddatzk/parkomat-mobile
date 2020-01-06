@@ -27,21 +27,9 @@ String statsDescription(FreeSpotStatistics stats, BuildContext context) {
   int freeNormalSpots = stats.freeNormalPlaces.length;
   int freeLiftSpots = stats.freeLiftPlaces.length;
   String freeNormalSpotsDetails;
-  if (freeNormalSpots == 0) {
-    freeNormalSpotsDetails = "";
-  } else if (freeNormalSpots == 1) {
-    freeNormalSpotsDetails = S.of(context).oneStandard;
-  } else {
-    freeNormalSpotsDetails = _normalStatsDescription(freeLiftSpots, context);
-  }
+  freeNormalSpotsDetails = _normalStatsDescription(freeLiftSpots, context);
   String freeLiftSpotsDetails;
-  if (freeLiftSpots == 0) {
-    freeLiftSpotsDetails = "";
-  } else if (freeLiftSpots == 1) {
-    freeLiftSpotsDetails = S.of(context).one;
-  } else {
-    freeLiftSpotsDetails = _liftStatsDescription(freeNormalSpots, context);
-  }
+  freeLiftSpotsDetails = _liftStatsDescription(freeNormalSpots, context);
 
   return S.of(context).statsDescription(freeNormalSpotsDetails, freeLiftSpotsDetails);
 }
