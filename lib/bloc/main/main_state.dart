@@ -23,6 +23,15 @@ class UnsetMainState extends MainState {
   List<Object> get props => [];
 }
 
+class OutdatedVersionMainState extends MainState {
+  final String version;
+
+  OutdatedVersionMainState(this.version);
+
+  @override
+  List<Object> get props => [version];
+}
+
 class Error404MainState extends MainState {
   @override
   List<Object> get props => [];

@@ -1,6 +1,7 @@
 import 'package:inject/inject.dart';
 import 'package:parkomat/bloc/main/main_bloc.dart';
 import 'package:parkomat/bloc/settings/settings_bloc.dart';
+import 'package:parkomat/data/network/apis/github/github_client.dart';
 import 'package:parkomat/data/network/apis/parkomat/parkomat_client.dart';
 import 'package:parkomat/di/modules/parkomat_module.dart';
 import 'package:parkomat/main.dart';
@@ -16,6 +17,9 @@ abstract class AppComponent {
 
   @provide
   ParkomatClient get parkomatClient;
+
+  @provide
+  GithubClient get githubClient;
 
   @provide
   @singleton

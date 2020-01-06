@@ -37,6 +37,7 @@ class S implements WidgetsLocalizations {
   String get yourParkomat => "\nScincerly -- your parkomat.";
   String statsDescription(String normal, String lift) => "$normal and $lift";
   String statsShareTitle(String number) => "There are $number free parking spots.";
+  String outdatedVersion(String version) => "There is a new app version: $version";
 }
 
 class $de extends S {
@@ -79,6 +80,8 @@ class $de extends S {
   String statsShareTitle(String number) => "Es gibt $number freie Parkplätze.";
   @override
   String statsDescription(String normal, String lift) => "$normal und $lift";
+  @override
+  String outdatedVersion(String version) => "Es gibt eine neue Version der App: $version";
 }
 
 class $en extends S {

@@ -1,7 +1,10 @@
+import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:parkomat/bloc/main/main_bloc.dart';
+import 'package:parkomat/generated/i18n.dart';
 import 'package:parkomat/main.dart';
+import 'package:parkomat/routes.dart';
 import 'package:parkomat/widget/connectivity_indicator.dart';
 import 'package:parkomat/widget/parkomat_body.dart';
 import 'package:parkomat/widget/parkomat_footer.dart';
@@ -27,39 +30,58 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: BlocBuilder<MainBloc, MainState>(
+              child: BlocListener<MainBloc, MainState>(
                 bloc: widget._bloc,
-                builder: (context, state) {
-                  if (state is UnsetMainState) {
-                    widget._bloc.add(SetBaseUrlMainEvent(context, true));
-                  }
-                  if (state is LoadedMainState) {
-                    return Stack(
-                      children: <Widget>[
-                        ShareButton(state),
-                        Column(
-                          children: <Widget>[
-                            ParkomatHeader(),
-                            ParkomatBody(state),
-                            Expanded(child: Container()),
-                            ParkomatFooter(state),
-                          ],
-                        ),
-                      ],
-                    );
-                  }
+                listener: (context, state) {
                   if (state is Error404MainState) {
-                    widget._bloc.add(Error404MainEvent(context));
+                    Flushbar(
+                      message: S.of(context).couldNotGetStats,
+                      backgroundColor: Colors.red,
+                      duration: Duration(seconds: 3),
+                    )..show(context);
                   }
-                  return Container();
+                  if (state is OutdatedVersionMainState) {
+                    Flushbar(
+                      message: S.of(context).outdatedVersion(state.version),
+                      backgroundColor: Colors.red,
+                      duration: Duration(seconds: 3),
+                    )..show(context);
+                  }
+                  if (state is UnsetMainState) {
+                    Navigator.pushReplacement(context, RouteBuilder.build(context, Routes.settings));
+                  }
                 },
+                child: BlocBuilder<MainBloc, MainState>(
+                  bloc: widget._bloc,
+                  builder: (context, state) {
+//                    if (state is UnsetMainState) {
+//                      widget._bloc.add(SetBaseUrlMainEvent(context, true));
+//                    }
+                    if (state is LoadedMainState) {
+                      return Stack(
+                        children: <Widget>[
+                          ShareButton(state),
+                          Column(
+                            children: <Widget>[
+                              ParkomatHeader(),
+                              ParkomatBody(state),
+                              Expanded(child: Container()),
+                              ParkomatFooter(state),
+                            ],
+                          ),
+                        ],
+                      );
+                    }
+                    return Container();
+                  },
+                ),
               ),
             ),
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => widget._bloc.add(SetBaseUrlMainEvent(context, false)),
+        onPressed: () => Navigator.push(context, RouteBuilder.build(context, Routes.settings)),
         child: Icon(Icons.settings),
       ),
     );

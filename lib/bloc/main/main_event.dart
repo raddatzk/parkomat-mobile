@@ -35,3 +35,13 @@ class Error404MainEvent extends MainEvent {
   @override
   List<Object> get props => [context];
 }
+
+class OutdatedVersionMainEvent extends MainEvent {
+  final BuildContext context;
+  final String version;
+
+  OutdatedVersionMainEvent(this.context, this.version);
+
+  @override
+  List<Object> get props => [context];
+}

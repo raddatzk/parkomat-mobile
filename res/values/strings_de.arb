@@ -15,5 +15,6 @@
   "yesterday": "Gestern",
   "statsDescription": "$normal und $lift",
   "statsShareTitle": "Es gibt $number freie Parkplätze.",
-  "yourParkomat": "\nMit freundlichen Grüßen -- dein Parkomat."
+  "yourParkomat": "\nMit freundlichen Grüßen -- dein Parkomat.",
+  "outdatedVersion": "Es gibt eine neue Version der App: $version"
 }
