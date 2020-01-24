@@ -27,9 +27,9 @@ String statsDescription(FreeSpotStatistics stats, BuildContext context) {
   int freeNormalSpots = stats.freeNormalPlaces.length;
   int freeLiftSpots = stats.freeLiftPlaces.length;
   String freeNormalSpotsDetails;
-  freeNormalSpotsDetails = _normalStatsDescription(freeLiftSpots, context);
+  freeNormalSpotsDetails = _normalStatsDescription(freeNormalSpots, context);
   String freeLiftSpotsDetails;
-  freeLiftSpotsDetails = _liftStatsDescription(freeNormalSpots, context);
+  freeLiftSpotsDetails = _liftStatsDescription(freeLiftSpots, context);
 
   return S.of(context).statsDescription(freeNormalSpotsDetails, freeLiftSpotsDetails);
 }
