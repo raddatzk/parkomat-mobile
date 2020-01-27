@@ -38,3 +38,12 @@ class Error404MainState extends MainState {
   @override
   List<Object> get props => [];
 }
+
+class ShowChangelogMainState extends MainState {
+  final String releaseNotes;
+
+  ShowChangelogMainState(this.releaseNotes);
+
+  @override
+  List<Object> get props => [releaseNotes];
+}

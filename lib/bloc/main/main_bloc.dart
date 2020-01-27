@@ -55,6 +55,11 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   Stream<MainState> handleInitialization(InitMainEvent event) async* {
     String baseUrl = await _sharedPreferenceCache.getBaseUrl();
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    bool changelog = await _sharedPreferenceCache.getChangelogForVersion(packageInfo.version);
+    if (changelog == null) {
+      yield ShowChangelogMainState((await _githubClient.release).body);
+      _sharedPreferenceCache.setChangelogForVersion(packageInfo.version);
+    }
     if (baseUrl == null) {
       yield UnsetMainState();
     } else {

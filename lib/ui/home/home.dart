@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: ConnectivityIndicator(
         child: RefreshIndicator(
-          onRefresh: () async => widget._bloc.add(RefreshMainEvent(context)),
+          onRefresh: () async => widget._bloc.add(RefreshMainEvent()),
           child: SingleChildScrollView(
             physics: AlwaysScrollableScrollPhysics(),
             child: Container(
@@ -37,43 +39,55 @@ class _HomeScreenState extends State<HomeScreen> {
                     Flushbar(
                       message: S.of(context).couldNotGetStats,
                       backgroundColor: Colors.red,
+                      icon: Icon(Icons.error),
                       duration: Duration(seconds: 3),
                     )..show(context);
                   }
                   if (state is OutdatedVersionMainState) {
-                    Flushbar(
+                    Flushbar flush;
+                    flush = Flushbar(
                       message: S.of(context).outdatedVersion(state.version),
-                      backgroundColor: Colors.red,
-                      duration: Duration(seconds: 3),
+                      backgroundColor: Colors.orange,
+                      icon: Icon(Icons.warning),
+                      isDismissible: true,
+                      mainButton: (Platform.isAndroid)
+                          ? FlatButton(
+                              onPressed: () {
+                                widget._bloc.add(UpdateApkMainEvent());
+                                flush.dismiss();
+                              },
+                              child: Icon(Icons.file_download),
+                            )
+                          : null,
                     )..show(context);
                   }
                   if (state is UnsetMainState) {
                     Navigator.pushReplacement(context, RouteBuilder.build(context, Routes.settings));
                   }
+                  if (state is ShowChangelogMainState) {
+                    Flushbar(
+                      backgroundColor: Color.fromARGB(255, 69, 69, 69),
+                      message: state.releaseNotes,
+                      icon: Icon(Icons.new_releases),
+                      isDismissible: true,
+                    )..show(context);
+                  }
                 },
                 child: BlocBuilder<MainBloc, MainState>(
                   bloc: widget._bloc,
-                  builder: (context, state) {
-//                    if (state is UnsetMainState) {
-//                      widget._bloc.add(SetBaseUrlMainEvent(context, true));
-//                    }
-                    if (state is LoadedMainState) {
-                      return Stack(
+                  builder: (context, state) => Stack(
+                    children: <Widget>[
+                      ShareButton(state),
+                      Column(
                         children: <Widget>[
-                          ShareButton(state),
-                          Column(
-                            children: <Widget>[
-                              ParkomatHeader(),
-                              ParkomatBody(state),
-                              Expanded(child: Container()),
-                              ParkomatFooter(state),
-                            ],
-                          ),
+                          ParkomatHeader(),
+                          ParkomatBody(state),
+                          Expanded(child: Container()),
+                          ParkomatFooter(state),
                         ],
-                      );
-                    }
-                    return Container();
-                  },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
