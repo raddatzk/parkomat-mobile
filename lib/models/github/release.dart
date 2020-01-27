@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:json_annotation/json_annotation.dart' show JsonKey, JsonSerializable;
 
-import 'asset.dart';
+import 'asset.dart' show Asset;
 
 part 'release.g.dart';
 

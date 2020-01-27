@@ -1,17 +1,17 @@
 import 'dart:io';
 
-import 'package:flushbar/flushbar.dart';
+import 'package:flushbar/flushbar.dart' show Flushbar;
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parkomat/bloc/main/main_bloc.dart';
-import 'package:parkomat/generated/i18n.dart';
-import 'package:parkomat/main.dart';
-import 'package:parkomat/routes.dart';
-import 'package:parkomat/widget/connectivity_indicator.dart';
-import 'package:parkomat/widget/parkomat_body.dart';
-import 'package:parkomat/widget/parkomat_footer.dart';
-import 'package:parkomat/widget/parkomat_header.dart';
-import 'package:parkomat/widget/share_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder, BlocListener;
+import 'package:parkomat/bloc/main/main_bloc.dart' show Error404MainState, MainBloc, MainState, OutdatedVersionMainState, RefreshMainEvent, ShowChangelogMainState, UnsetMainState, UpdateApkMainEvent;
+import 'package:parkomat/generated/l10n.dart' show S;
+import 'package:parkomat/main.dart' show sl;
+import 'package:parkomat/routes.dart' show RouteBuilder, Routes;
+import 'package:parkomat/widget/connectivity_indicator/connectivity_indicator.dart' show ConnectivityIndicator;
+import 'package:parkomat/widget/parkomat_body/parkomat_body.dart' show ParkomatBody;
+import 'package:parkomat/widget/parkomat_footer/parkomat_footer.dart' show ParkomatFooter;
+import 'package:parkomat/widget/parkomat_header/parkomat_header.dart' show ParkomatHeader;
+import 'package:parkomat/widget/share_button/share_button.dart' show ShareButton;
 
 class HomeScreen extends StatefulWidget {
   final MainBloc _bloc = sl<MainBloc>();
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 listener: (context, state) {
                   if (state is Error404MainState) {
                     Flushbar(
-                      message: S.of(context).couldNotGetStats,
+                      message: S.of(context).couldNotFetchStatsFromParkomat,
                       backgroundColor: Colors.red,
                       icon: Icon(Icons.error),
                       duration: Duration(seconds: 3),
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (state is OutdatedVersionMainState) {
                     Flushbar flush;
                     flush = Flushbar(
-                      message: S.of(context).outdatedVersion(state.version),
+                      message: S.of(context).thereIsANewAppVersion(state.version),
                       backgroundColor: Colors.orange,
                       icon: Icon(Icons.warning),
                       isDismissible: true,

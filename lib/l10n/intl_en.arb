@@ -1,0 +1,20 @@
+{
+  "couldNotFetchStatsFromParkomat": "Could not fetch stats from parkomat.",
+  "thereIsANewAppVersion": "There is a new app version: {version}",
+  "lastUpdateAt": "Last update: {datetime}",
+  "lastUpdateToday": "Last update: Today",
+  "lastUpdateYesterday": "Last update: Yesterday",
+  "lastUpdateLastWeek": "Last update: Last week",
+  "lastUpdateLastMonth": "Last update: Last month",
+  "lastUpdateLastYear": "Last update: Last year",
+  "lastUpdateLongAgo": "Last update: Very long ago",
+  "thereAreFreeParkingSpots": "{amount, plural, zero{There are no free parking spots. } one{There is one free parking spot. } other{There are {amount} free parking spots. }}",
+  "normalOnesAnd": "{amount, plural, zero{No normal one and } one{One normal one and } other{{amount} normal ones and }}",
+  "onTheLifts": "{amount, plural, zero{no on the lifts.} one{one on the lifts.} other{{amount} on the lifts.}}",
+  "sincerely": "\nSincerely -- your parkomat.",
+  "online": "ONLINE",
+  "offline": "OFFLINE",
+  "parkingSpots": "{amount, plural, one{1 parking spot} other{{amount} parking spots}}",
+  "urlToParkomat": "URL to your parkomat",
+  "couldNotConnect": "Could not connect to parkomat."
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:parkomat/bloc/settings/settings_bloc.dart';
-import 'package:parkomat/generated/i18n.dart';
+import 'package:parkomat/bloc/settings/settings_bloc.dart' show InvalidBaseUrlSettingsState, LoadedSettingsState, SettingsState;
+import 'package:parkomat/generated/l10n.dart' show S;
 
 typedef void SetBaseUrlCallback(String baseUrl);
 

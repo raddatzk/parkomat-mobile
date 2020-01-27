@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:parkomat/bloc/settings/settings_bloc.dart';
-import 'package:parkomat/main.dart';
-import 'package:parkomat/widget/connectivity_indicator.dart';
-import 'package:parkomat/widget/parkomat_header.dart';
-import 'package:parkomat/widget/settings_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocBuilder;
+import 'package:parkomat/bloc/settings/settings_bloc.dart' show InitialSettingsState, SetBaseUrlSettingsEvent, SettingsBloc, SettingsState, TryBaseUrlSettingsState;
+import 'package:parkomat/main.dart' show sl;
+import 'package:parkomat/widget/connectivity_indicator/connectivity_indicator.dart' show ConnectivityIndicator;
+import 'package:parkomat/widget/parkomat_header/parkomat_header.dart' show ParkomatHeader;
+import 'package:parkomat/widget/settings_widget/settings_widget.dart' show SettingsWidget;
 
 class SettingsScreen extends StatefulWidget {
   final SettingsBloc _bloc = sl<SettingsBloc>();

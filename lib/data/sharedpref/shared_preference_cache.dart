@@ -1,19 +1,15 @@
 import 'dart:async';
 
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart' show SharedPreferences;
 
-import 'constants/preferences.dart';
+import 'constants/preferences.dart' show Preferences;
 
 class SharedPreferenceCache {
-  // shared pref instance
   final Future<SharedPreferences> _sharedPreference;
 
   String _baseUrl;
 
-  // constructor
   SharedPreferenceCache(this._sharedPreference);
-
-  // General Methods: ----------------------------------------------------------
 
   Future<String> getBaseUrl() async {
     _baseUrl = (await _sharedPreference).getString(Preferences.baseUrl);

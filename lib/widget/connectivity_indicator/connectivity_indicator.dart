@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_offline/flutter_offline.dart';
+import 'package:flutter_offline/flutter_offline.dart' show ConnectivityResult, OfflineBuilder;
+import 'package:parkomat/generated/l10n.dart';
 
 class ConnectivityIndicator extends StatelessWidget {
   final Widget child;
@@ -27,11 +28,11 @@ class ConnectivityIndicator extends StatelessWidget {
                         child: AnimatedSwitcher(
                           duration: const Duration(milliseconds: 350),
                           child: connected
-                              ? Text('ONLINE')
+                              ? Text(S.of(context).online)
                               : Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
-                                    Text('OFFLINE'),
+                                    Text(S.of(context).offline),
                                     SizedBox(width: 8.0),
                                     SizedBox(
                                       width: 12.0,

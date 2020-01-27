@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parkomat/bloc/main/main_bloc.dart';
-import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
-import 'package:parkomat/util/stats_utils.dart';
+import 'package:parkomat/bloc/main/main_bloc.dart' show LoadedMainState, LoadingMainState, MainState;
+import 'package:parkomat/generated/l10n.dart' show S;
+import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
+import 'package:parkomat/util/stats_utils/stats_utils.dart' show statsDetails;
 
 class ParkomatBody extends StatefulWidget {
   final MainState _mainState;
@@ -22,8 +23,8 @@ class _ParkomatBodyState extends State<ParkomatBody> {
   Widget _buildMainLoadedState(LoadedMainState state) {
     return Column(
       children: <Widget>[
-        _buildFullStatsWidget(state.stats),
-        _buildDetailedStatsWidget(state.stats),
+        _buildStatsSummaryWidget(state.stats),
+        _buildStatsDetailsWidget(state.stats),
       ],
     );
   }
@@ -39,9 +40,9 @@ class _ParkomatBodyState extends State<ParkomatBody> {
     return Container();
   }
 
-  Widget _buildFullStatsWidget(FreeSpotStatistics stats) {
+  Widget _buildStatsSummaryWidget(FreeSpotStatistics stats) {
     return Text(
-      statsTitle(stats, context),
+      S.of(context).parkingSpots(stats.freeSpots),
       style: TextStyle(
         color: Colors.white70,
         fontWeight: FontWeight.bold,
@@ -50,9 +51,9 @@ class _ParkomatBodyState extends State<ParkomatBody> {
     );
   }
 
-  Widget _buildDetailedStatsWidget(FreeSpotStatistics stats) {
+  Widget _buildStatsDetailsWidget(FreeSpotStatistics stats) {
     return Text(
-      statsDescription(stats, context),
+      statsDetails(stats, context),
       style: TextStyle(
         fontSize: 20,
         color: Colors.white70,

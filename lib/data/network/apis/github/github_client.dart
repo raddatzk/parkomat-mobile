@@ -1,7 +1,7 @@
-import 'package:dio/dio.dart';
-import 'package:parkomat/models/github/asset.dart';
-import 'package:parkomat/models/github/release.dart';
-import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
+import 'package:dio/dio.dart' show Dio, RequestOptions, Response;
+import 'package:parkomat/models/github/asset.dart' show Asset;
+import 'package:parkomat/models/github/release.dart' show Release;
+import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
 
 class GithubClient {
   GithubClient(this._dio) {

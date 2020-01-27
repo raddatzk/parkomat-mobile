@@ -1,5 +1,5 @@
-import 'package:dio/dio.dart';
-import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
+import 'package:dio/dio.dart' show Dio, RequestOptions, Response;
+import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
 
 class ParkomatClient {
   ParkomatClient(this._dio) {

@@ -1,31 +1,17 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_it/get_it.dart';
-import 'package:parkomat/data/sharedpref/shared_preference_cache.dart';
-import 'package:parkomat/di/di.dart';
-import 'package:parkomat/generated/i18n.dart';
-
-import 'bloc/main/main_bloc.dart';
-import 'bloc/settings/settings_bloc.dart';
-import 'data/network/apis/github/github_client.dart';
-import 'data/network/apis/parkomat/parkomat_client.dart';
-import 'ui/home/home.dart';
+import 'package:flutter/services.dart' show Brightness;
+import 'package:flutter_localizations/flutter_localizations.dart' show GlobalCupertinoLocalizations, GlobalMaterialLocalizations, GlobalWidgetsLocalizations;
+import 'package:get_it/get_it.dart' show GetIt;
+import 'package:parkomat/di/di.dart' show prepareDi;
+import 'package:parkomat/generated/l10n.dart' show S;
+import 'package:parkomat/generated/l10n_extension.dart';
+import 'package:parkomat/ui/home/home.dart' show HomeScreen;
 
 GetIt sl = GetIt.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  sl.registerSingleton<Dio>(await createDio(true));
-  sl.registerSingleton<ParkomatClient>(ParkomatClient(sl<Dio>()));
-  sl.registerSingleton<SharedPreferenceCache>(await createSharedPreferenceCache());
-  sl.registerSingleton<GithubClient>(GithubClient(sl<Dio>()));
-
-  sl.registerSingleton<MainBloc>(MainBloc(sl<ParkomatClient>(), sl<SharedPreferenceCache>(), sl<GithubClient>()));
-
-  sl.registerSingleton<SettingsBloc>(SettingsBloc(sl<ParkomatClient>(), sl<SharedPreferenceCache>()));
-
+  await prepareDi();
   runApp(ParkomatApp());
 }
 
@@ -42,7 +28,7 @@ class ParkomatApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      localeResolutionCallback: S.delegate.resolution(fallback: new Locale("en", ""), withCountry: false),
+      localeResolutionCallback: S.delegate.resolution(fallback: Locale("en", "")),
       theme: ThemeData(
         brightness: Brightness.dark,
         toggleableActiveColor: Colors.limeAccent,
