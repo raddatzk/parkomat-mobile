@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:inject/inject.dart';
 import 'package:parkomat/models/github/asset.dart';
 import 'package:parkomat/models/github/release.dart';
 import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
 
-@provide
 class GithubClient {
   GithubClient(this._dio) {
     ArgumentError.checkNotNull(_dio, '_dio');

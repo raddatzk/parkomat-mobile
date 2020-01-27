@@ -7,7 +7,7 @@ import 'package:parkomat/widget/parkomat_header.dart';
 import 'package:parkomat/widget/settings_widget.dart';
 
 class SettingsScreen extends StatefulWidget {
-  final SettingsBloc _bloc = appComponent.settingsBloc;
+  final SettingsBloc _bloc = sl<SettingsBloc>();
 
   @override
   _SettingsScreenState createState() => _SettingsScreenState();

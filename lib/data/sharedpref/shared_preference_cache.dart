@@ -1,11 +1,9 @@
 import 'dart:async';
 
-import 'package:inject/inject.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants/preferences.dart';
 
-@provide
 class SharedPreferenceCache {
   // shared pref instance
   final Future<SharedPreferences> _sharedPreference;

@@ -14,7 +14,7 @@ import 'package:parkomat/widget/parkomat_header.dart';
 import 'package:parkomat/widget/share_button.dart';
 
 class HomeScreen extends StatefulWidget {
-  final MainBloc _bloc = appComponent.mainBloc;
+  final MainBloc _bloc = sl<MainBloc>();
 
   @override
   _HomeScreenState createState() => _HomeScreenState();

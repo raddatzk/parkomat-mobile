@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:inject/inject.dart';
 import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
 
-@provide
 class ParkomatClient {
   ParkomatClient(this._dio) {
     ArgumentError.checkNotNull(_dio, '_dio');

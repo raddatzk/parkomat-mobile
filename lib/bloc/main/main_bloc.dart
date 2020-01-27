@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:inject/inject.dart';
 import 'package:meta/meta.dart';
 import 'package:open_file/open_file.dart';
 import 'package:package_info/package_info.dart';
@@ -17,7 +16,6 @@ import 'package:path_provider/path_provider.dart';
 part 'main_event.dart';
 part 'main_state.dart';
 
-@provide
 class MainBloc extends Bloc<MainEvent, MainState> {
   final ParkomatClient _parkomatClient;
   final SharedPreferenceCache _sharedPreferenceCache;
