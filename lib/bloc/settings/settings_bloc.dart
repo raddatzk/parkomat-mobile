@@ -1,19 +1,17 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
+import 'package:bloc/bloc.dart' show Bloc;
+import 'package:dio/dio.dart' show DioError;
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:inject/inject.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:parkomat/data/network/apis/parkomat/parkomat_client.dart';
-import 'package:parkomat/data/sharedpref/shared_preference_cache.dart';
-import 'package:parkomat/routes.dart';
+import 'package:parkomat/data/network/apis/parkomat/parkomat_client.dart' show ParkomatClient;
+import 'package:parkomat/data/sharedpref/shared_preference_cache.dart' show SharedPreferenceCache;
+import 'package:parkomat/routes.dart' show RouteBuilder, Routes;
 
 part 'settings_event.dart';
 part 'settings_state.dart';
 
-@provide
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   final ParkomatClient _parkomatClient;
   final SharedPreferenceCache _sharedPreferenceCache;

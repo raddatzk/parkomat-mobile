@@ -3,10 +3,12 @@ part of 'main_bloc.dart';
 @immutable
 abstract class MainState extends Equatable {}
 
-class MainInitialState extends MainState {
+class LoadingMainState extends MainState {
   @override
   List<Object> get props => [];
 }
+
+class MainInitialState extends LoadingMainState {}
 
 class LoadedMainState extends MainState {
   final FreeSpotStatistics stats;
@@ -35,4 +37,13 @@ class OutdatedVersionMainState extends MainState {
 class Error404MainState extends MainState {
   @override
   List<Object> get props => [];
+}
+
+class ShowChangelogMainState extends MainState {
+  final String releaseNotes;
+
+  ShowChangelogMainState(this.releaseNotes);
+
+  @override
+  List<Object> get props => [releaseNotes];
 }

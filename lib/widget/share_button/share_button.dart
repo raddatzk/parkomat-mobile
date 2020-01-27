@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parkomat/bloc/main/main_bloc.dart';
-import 'package:parkomat/generated/i18n.dart';
-import 'package:parkomat/util/stats_utils.dart';
-import 'package:share/share.dart';
+import 'package:parkomat/bloc/main/main_bloc.dart' show LoadedMainState, MainState;
+import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
+import 'package:parkomat/util/stats_utils/stats_utils.dart' show shareMessageGreeting, statsDetails, statsSummary;
+import 'package:share/share.dart' show Share;
 
 class ShareButton extends StatelessWidget {
   final MainState _mainState;
@@ -17,7 +17,8 @@ class ShareButton extends StatelessWidget {
       child: IconButton(
         onPressed: (_mainState is LoadedMainState)
             ? () {
-                String subject = statsShareTitle((_mainState as LoadedMainState).stats, context) + " " + statsDescription((_mainState as LoadedMainState).stats, context) + S.of(context).yourParkomat;
+                FreeSpotStatistics stats = (_mainState as LoadedMainState).stats;
+                String subject = statsSummary(stats, context) + statsDetails(stats, context) + shareMessageGreeting(context);
                 RenderBox box = context.findRenderObject();
                 Share.share(subject, sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
               }

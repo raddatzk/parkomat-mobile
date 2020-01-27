@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'relative_height_container.dart';
+import 'package:parkomat/widget/relative_height_container/relative_height_container.dart' show RelativeHeightContainer;
 
 class ParkomatHeader extends StatelessWidget {
   @override
