@@ -13,7 +13,7 @@ class ParkomatBody extends StatefulWidget {
 }
 
 class _ParkomatBodyState extends State<ParkomatBody> {
-  Widget _buildMainInitialState(MainInitialState state) {
+  Widget _buildLoadingInitialState(LoadingMainState state) {
     return Center(
       child: CircularProgressIndicator(),
     );
@@ -30,8 +30,8 @@ class _ParkomatBodyState extends State<ParkomatBody> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget._mainState is MainInitialState) {
-      return _buildMainInitialState(widget._mainState);
+    if (widget._mainState is LoadingMainState) {
+      return _buildLoadingInitialState(widget._mainState);
     }
     if (widget._mainState is LoadedMainState) {
       return _buildMainLoadedState(widget._mainState);

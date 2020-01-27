@@ -1,7 +1,7 @@
 name: parkomat
 description: A beautiful app for your parkomat.
 
-version: 1.4.0
+version: 1.5.0
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -29,6 +29,8 @@ dependencies:
   share: ^0.6.3+5
   yaml: 2.2.0
   package_info: 0.4.0+13
+  open_file: 3.0.1
+  path_provider: 1.5.1
   inject:
     git:
       url: https://github.com/google/inject.dart.git

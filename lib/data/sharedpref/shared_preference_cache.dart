@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:inject/inject.dart';
-import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants/preferences.dart';
@@ -13,7 +11,6 @@ class SharedPreferenceCache {
   final Future<SharedPreferences> _sharedPreference;
 
   String _baseUrl;
-  FreeSpotStatistics _stats;
 
   // constructor
   SharedPreferenceCache(this._sharedPreference);
@@ -30,13 +27,11 @@ class SharedPreferenceCache {
     return (await _sharedPreference).setString(Preferences.baseUrl, baseUrl);
   }
 
-  Future<FreeSpotStatistics> getStats() async {
-    String stats = (await _sharedPreference).getString(Preferences.stats);
-    return stats == null ? stats : FreeSpotStatistics.fromJson(jsonDecode(stats));
+  Future<bool> getChangelogForVersion(String version) async {
+    return (await _sharedPreference).getBool("Version $version");
   }
 
-  Future<bool> setFreeSpotStatistics(FreeSpotStatistics stats) async {
-    _stats = stats;
-    return (await _sharedPreference).setString(Preferences.stats, jsonEncode(stats.toJson()));
+  Future<bool> setChangelogForVersion(String version) async {
+    return (await _sharedPreference).setBool("Version $version", true);
   }
 }

@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:inject/inject.dart';
+import 'package:parkomat/models/github/asset.dart';
+import 'package:parkomat/models/github/release.dart';
 import 'package:parkomat/models/parkomat/free_spot_statistics.dart';
-import 'package:yaml/yaml.dart';
 
 @provide
 class GithubClient {
@@ -9,13 +10,32 @@ class GithubClient {
     ArgumentError.checkNotNull(_dio, '_dio');
   }
 
-  final String baseUrl = 'https://raw.githubusercontent.com/kevinraddatz/parkomat-mobile/master/';
+  Release _release;
   final Dio _dio;
 
+  Future<Release> getLatestRelease() async {
+    Response response = await _dio.get("https://api.github.com/repos/kevinraddatz/parkomat-mobile/releases/latest");
+    return Release.fromJson(response.data);
+  }
+
+  Future<Release> get release async {
+    if (_release == null) {
+      _release = await getLatestRelease();
+    }
+
+    return _release;
+  }
+
   Future<String> getServerVersion() async {
-    Response _result = await _dio.get('pubspec.yaml', options: RequestOptions(baseUrl: baseUrl));
-    var doc = loadYaml(_result.data);
-    return doc["version"];
+    return (await release).name.split(' ')[1];
+  }
+
+  downloadApk(String storagePath) async {
+    Asset asset = (await release).assets.firstWhere((a) => a.contentType == "application/vnd.android.package-archive");
+    await _dio.download(
+      asset.url,
+      "$storagePath/parkomat.apk",
+    );
   }
 
   Future<FreeSpotStatistics> getStats(String baseUrl) async {
