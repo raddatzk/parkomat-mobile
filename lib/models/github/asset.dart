@@ -8,8 +8,9 @@ class Asset {
   final String url;
   @JsonKey(name: 'content_type')
   final String contentType;
+  final String name;
 
-  Asset(this.url, this.contentType);
+  Asset(this.url, this.contentType, this.name);
 
   factory Asset.fromJson(Map<String, dynamic> json) => _$AssetFromJson(json);
   Map<String, dynamic> toJson() => _$AssetToJson(this);

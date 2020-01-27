@@ -8,13 +8,16 @@ part of 'free_spot_statistics.dart';
 
 FreeSpotStatistics _$FreeSpotStatisticsFromJson(Map<String, dynamic> json) {
   return FreeSpotStatistics(
-    freeNormalSpots: (json['freeNormalPlaces'] as List)?.map((e) => e as String)?.toList(),
-    freeLiftSpots: (json['freeLiftPlaces'] as List)?.map((e) => e as String)?.toList(),
+    freeNormalSpots:
+        (json['freeNormalPlaces'] as List)?.map((e) => e as String)?.toList(),
+    freeLiftSpots:
+        (json['freeLiftPlaces'] as List)?.map((e) => e as String)?.toList(),
     lastUpdatedMessage: json['lastUpdated'] as String,
   );
 }
 
-Map<String, dynamic> _$FreeSpotStatisticsToJson(FreeSpotStatistics instance) => <String, dynamic>{
+Map<String, dynamic> _$FreeSpotStatisticsToJson(FreeSpotStatistics instance) =>
+    <String, dynamic>{
       'freeLiftPlaces': instance.freeLiftSpots,
       'freeNormalPlaces': instance.freeNormalSpots,
       'lastUpdated': instance.lastUpdatedMessage,
