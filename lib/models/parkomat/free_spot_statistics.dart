@@ -4,7 +4,9 @@ part 'free_spot_statistics.g.dart';
 
 @JsonSerializable()
 class FreeSpotStatistics {
+  @JsonKey(name: "freeLiftPlaces")
   List<String> freeLiftSpots;
+  @JsonKey(name: "freeNormalPlaces")
   List<String> freeNormalSpots;
   @JsonKey(name: "lastUpdated")
   String lastUpdatedMessage;
