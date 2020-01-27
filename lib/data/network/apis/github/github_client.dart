@@ -32,7 +32,7 @@ class GithubClient {
     Asset asset = (await release).assets.firstWhere((a) => a.contentType == "application/vnd.android.package-archive");
     await _dio.download(
       asset.url,
-      "$storagePath/parkomat.apk",
+      "$storagePath/${asset.name}",
     );
   }
 
