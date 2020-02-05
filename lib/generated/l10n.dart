@@ -125,7 +125,7 @@ class S {
   String normalOnesAnd(dynamic amount) {
     return Intl.plural(
       amount,
-      zero: 'No normal one and ',
+      zero: 'No normal ones and ',
       one: 'One normal one and ',
       other: '$amount normal ones and ',
       name: 'normalOnesAnd',

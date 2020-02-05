@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(datetime) => "Last update: ${datetime}";
 
-  static m1(amount) => "${Intl.plural(amount, zero: 'No normal one and ', one: 'One normal one and ', other: '${amount} normal ones and ')}";
+  static m1(amount) => "${Intl.plural(amount, zero: 'No normal ones and ', one: 'One normal one and ', other: '${amount} normal ones and ')}";
 
   static m2(amount) => "${Intl.plural(amount, zero: 'no on the lifts.', one: 'one on the lifts.', other: '${amount} on the lifts.')}";
 

@@ -12,7 +12,9 @@ FreeSpotStatistics _$FreeSpotStatisticsFromJson(Map<String, dynamic> json) {
         (json['freeNormalPlaces'] as List)?.map((e) => e as String)?.toList(),
     freeLiftSpots:
         (json['freeLiftPlaces'] as List)?.map((e) => e as String)?.toList(),
-    lastUpdatedMessage: json['lastUpdated'] as String,
+    lastUpdated: json['lastUpdated'] == null
+        ? null
+        : DateTime.parse(json['lastUpdated'] as String),
   );
 }
 
@@ -20,5 +22,5 @@ Map<String, dynamic> _$FreeSpotStatisticsToJson(FreeSpotStatistics instance) =>
     <String, dynamic>{
       'freeLiftPlaces': instance.freeLiftSpots,
       'freeNormalPlaces': instance.freeNormalSpots,
-      'lastUpdated': instance.lastUpdatedMessage,
+      'lastUpdated': instance.lastUpdated?.toIso8601String(),
     };
