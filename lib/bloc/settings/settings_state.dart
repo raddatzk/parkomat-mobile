@@ -1,6 +1,5 @@
 part of 'settings_bloc.dart';
 
-@immutable
 abstract class SettingsState extends Equatable {}
 
 class InitialSettingsState extends SettingsState {
@@ -8,25 +7,21 @@ class InitialSettingsState extends SettingsState {
   List<Object> get props => [];
 }
 
-class InvalidBaseUrlSettingsState extends SettingsState {
-  final TextEditingController controller;
+class Loading extends SettingsState {
+  final bool loading;
 
-  InvalidBaseUrlSettingsState(this.controller);
+  Loading(this.loading);
 
   @override
-  List<Object> get props => [controller];
+  List<Object> get props => [loading];
 }
 
-class TryBaseUrlSettingsState extends SettingsState {
+class CheckConnection extends SettingsState {
   @override
   List<Object> get props => [];
 }
 
-class LoadedSettingsState extends SettingsState {
-  final TextEditingController controller;
-
-  LoadedSettingsState(this.controller);
-
+class CheckUrl extends SettingsState {
   @override
-  List<Object> get props => [controller];
+  List<Object> get props => [];
 }

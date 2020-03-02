@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, Colors, Column, FontWeight, StatelessWidget, Text, TextAlign, TextStyle, Widget;
 import 'package:parkomat/widget/relative_height_container/relative_height_container.dart' show RelativeHeightContainer;
 
 class ParkomatHeader extends StatelessWidget {
@@ -10,7 +10,8 @@ class ParkomatHeader extends StatelessWidget {
           factor: 0.2,
         ),
         Text(
-          "Parkom.at",
+          "Parkomat",
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 60,

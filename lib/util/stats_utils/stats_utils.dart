@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext;
 import 'package:parkomat/generated/l10n.dart' show S;
 import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
 

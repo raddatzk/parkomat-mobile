@@ -3,5 +3,5 @@ class Preferences {
 
   static const String baseUrl = "baseUrl";
 
-  static const String stats = "stats";
+  static const String version = "version";
 }

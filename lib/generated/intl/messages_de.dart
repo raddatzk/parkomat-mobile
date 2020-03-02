@@ -29,12 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m4(amount) => "${Intl.plural(amount, zero: 'Es gibt keine freien Parkplätze. ', one: 'Es gibt einen freien Parkplatz. ', other: 'Es gibt ${amount} freie Parkplätze. ')}";
 
-  static m5(version) => "Es gibt eine neue Version der App: ${version}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "couldNotConnect" : MessageLookupByLibrary.simpleMessage("Konnte keine Verbindung aufbauen."),
-    "couldNotFetchStatsFromParkomat" : MessageLookupByLibrary.simpleMessage("Konnte keine Daten abrufen."),
+    "changelog" : MessageLookupByLibrary.simpleMessage("Changelog"),
+    "changelogGoBack" : MessageLookupByLibrary.simpleMessage("Okay"),
+    "checkConnection" : MessageLookupByLibrary.simpleMessage("Parkomat nicht gefunden."),
+    "checkUrl" : MessageLookupByLibrary.simpleMessage("Keine gültige Url."),
+    "couldNotConnect" : MessageLookupByLibrary.simpleMessage("Keine Internetverbindung."),
+    "installUpdateNow" : MessageLookupByLibrary.simpleMessage("Update jetzt installieren."),
     "lastUpdateAt" : m0,
     "lastUpdateLastMonth" : MessageLookupByLibrary.simpleMessage("Letztes Update: Letzter Monat"),
     "lastUpdateLastWeek" : MessageLookupByLibrary.simpleMessage("Letztes Update: Letzte Woche"),
@@ -43,13 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastUpdateToday" : MessageLookupByLibrary.simpleMessage("Letztes Update: Heute"),
     "lastUpdateYesterday" : MessageLookupByLibrary.simpleMessage("Letztes Update: Gestern"),
     "normalOnesAnd" : m1,
-    "offline" : MessageLookupByLibrary.simpleMessage("OFFLINE"),
     "onTheLifts" : m2,
-    "online" : MessageLookupByLibrary.simpleMessage("ONLINE"),
     "parkingSpots" : m3,
     "sincerely" : MessageLookupByLibrary.simpleMessage("\nMit freundlichen Grüßen -- dein Parkomat."),
     "thereAreFreeParkingSpots" : m4,
-    "thereIsANewAppVersion" : m5,
-    "urlToParkomat" : MessageLookupByLibrary.simpleMessage("URL zum Parkomat")
+    "thereIsANewAppVersion" : MessageLookupByLibrary.simpleMessage("Eine neue Version der App ist verfügbar."),
+    "urlToParkomat" : MessageLookupByLibrary.simpleMessage("Url to parkomat")
   };
 }

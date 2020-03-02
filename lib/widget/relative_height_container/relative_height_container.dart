@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, Container, MediaQuery, StatelessWidget, Widget;
 
 class RelativeHeightContainer extends StatelessWidget {
   final double factor;

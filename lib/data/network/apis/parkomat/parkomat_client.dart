@@ -1,21 +1,8 @@
-import 'package:dio/dio.dart' show Dio, RequestOptions, Response;
-import 'package:parkomat/models/parkomat/free_spot_statistics.dart' show FreeSpotStatistics;
+abstract class ParkomatClient {
+  String get prefix;
 
-class ParkomatClient {
-  ParkomatClient(this._dio) {
-    ArgumentError.checkNotNull(_dio, '_dio');
-  }
-
-  final Dio _dio;
-
-  String baseUrl;
-
-  Future<FreeSpotStatistics> getStats(String baseUrl) async {
-    final Response<Map<String, dynamic>> _result = await _dio.get('/stats', options: RequestOptions(baseUrl: baseUrl));
-    return FreeSpotStatistics.fromJson(_result.data);
-  }
-
-  Future<dynamic> getHealth(String baseUrl) async {
-    return _dio.get('/health', options: RequestOptions(baseUrl: baseUrl));
+  String mapUrl(String baseUrl) {
+    List<String> parts = baseUrl.split("://");
+    return "${parts[0]}://$prefix.${parts[1]}";
   }
 }

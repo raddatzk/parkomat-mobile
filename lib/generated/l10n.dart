@@ -29,21 +29,30 @@ class S {
 
   final String localeName;
 
-  String get couldNotFetchStatsFromParkomat {
+  String get checkConnection {
     return Intl.message(
-      'Could not fetch stats from parkomat.',
-      name: 'couldNotFetchStatsFromParkomat',
+      'Could not find parkomat.',
+      name: 'checkConnection',
       desc: '',
       args: [],
     );
   }
 
-  String thereIsANewAppVersion(dynamic version) {
+  String get checkUrl {
     return Intl.message(
-      'There is a new app version: $version',
-      name: 'thereIsANewAppVersion',
+      'Invalid url.',
+      name: 'checkUrl',
       desc: '',
-      args: [version],
+      args: [],
+    );
+  }
+
+  String get couldNotConnect {
+    return Intl.message(
+      'No internet connection.',
+      name: 'couldNotConnect',
+      desc: '',
+      args: [],
     );
   }
 
@@ -56,19 +65,10 @@ class S {
     );
   }
 
-  String get lastUpdateToday {
+  String get lastUpdateLastMonth {
     return Intl.message(
-      'Last update: Today',
-      name: 'lastUpdateToday',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get lastUpdateYesterday {
-    return Intl.message(
-      'Last update: Yesterday',
-      name: 'lastUpdateYesterday',
+      'Last update: Last month',
+      name: 'lastUpdateLastMonth',
       desc: '',
       args: [],
     );
@@ -78,15 +78,6 @@ class S {
     return Intl.message(
       'Last update: Last week',
       name: 'lastUpdateLastWeek',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get lastUpdateLastMonth {
-    return Intl.message(
-      'Last update: Last month',
-      name: 'lastUpdateLastMonth',
       desc: '',
       args: [],
     );
@@ -110,15 +101,21 @@ class S {
     );
   }
 
-  String thereAreFreeParkingSpots(dynamic amount) {
-    return Intl.plural(
-      amount,
-      zero: 'There are no free parking spots. ',
-      one: 'There is one free parking spot. ',
-      other: 'There are $amount free parking spots. ',
-      name: 'thereAreFreeParkingSpots',
+  String get lastUpdateToday {
+    return Intl.message(
+      'Last update: Today',
+      name: 'lastUpdateToday',
       desc: '',
-      args: [amount],
+      args: [],
+    );
+  }
+
+  String get lastUpdateYesterday {
+    return Intl.message(
+      'Last update: Yesterday',
+      name: 'lastUpdateYesterday',
+      desc: '',
+      args: [],
     );
   }
 
@@ -146,6 +143,17 @@ class S {
     );
   }
 
+  String parkingSpots(dynamic amount) {
+    return Intl.plural(
+      amount,
+      one: '1 parking spot',
+      other: '$amount parking spots',
+      name: 'parkingSpots',
+      desc: '',
+      args: [amount],
+    );
+  }
+
   String get sincerely {
     return Intl.message(
       '\nSincerely -- your parkomat.',
@@ -155,32 +163,24 @@ class S {
     );
   }
 
-  String get online {
-    return Intl.message(
-      'ONLINE',
-      name: 'online',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get offline {
-    return Intl.message(
-      'OFFLINE',
-      name: 'offline',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String parkingSpots(dynamic amount) {
+  String thereAreFreeParkingSpots(dynamic amount) {
     return Intl.plural(
       amount,
-      one: '1 parking spot',
-      other: '$amount parking spots',
-      name: 'parkingSpots',
+      zero: 'There are no free parking spots. ',
+      one: 'There is one free parking spot. ',
+      other: 'There are $amount free parking spots. ',
+      name: 'thereAreFreeParkingSpots',
       desc: '',
       args: [amount],
+    );
+  }
+
+  String get thereIsANewAppVersion {
+    return Intl.message(
+      'There is a new app version available',
+      name: 'thereIsANewAppVersion',
+      desc: '',
+      args: [],
     );
   }
 
@@ -193,10 +193,28 @@ class S {
     );
   }
 
-  String get couldNotConnect {
+  String get changelog {
     return Intl.message(
-      'Could not connect to parkomat.',
-      name: 'couldNotConnect',
+      'Changelog',
+      name: 'changelog',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get changelogGoBack {
+    return Intl.message(
+      'Okay',
+      name: 'changelogGoBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get installUpdateNow {
+    return Intl.message(
+      'Install update now.',
+      name: 'installUpdateNow',
       desc: '',
       args: [],
     );

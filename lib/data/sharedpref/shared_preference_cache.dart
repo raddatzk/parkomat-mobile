@@ -8,11 +8,14 @@ class SharedPreferenceCache {
   final Future<SharedPreferences> _sharedPreference;
 
   String _baseUrl;
+  String _version;
 
   SharedPreferenceCache(this._sharedPreference);
 
   Future<String> getBaseUrl() async {
-    _baseUrl = (await _sharedPreference).getString(Preferences.baseUrl);
+    if (_baseUrl == null) {
+      _baseUrl = (await _sharedPreference).getString(Preferences.baseUrl);
+    }
     return _baseUrl;
   }
 
@@ -21,11 +24,15 @@ class SharedPreferenceCache {
     return (await _sharedPreference).setString(Preferences.baseUrl, baseUrl);
   }
 
-  Future<bool> getChangelogForVersion(String version) async {
-    return (await _sharedPreference).getBool("Version $version");
+  Future<String> getVersion() async {
+    if (_version == null) {
+      _version = (await _sharedPreference).getString(Preferences.version);
+    }
+    return _version;
   }
 
-  Future<bool> setChangelogForVersion(String version) async {
-    return (await _sharedPreference).setBool("Version $version", true);
+  Future<bool> setVersion(String version) async {
+    _version = version;
+    return (await _sharedPreference).setString(Preferences.version, version);
   }
 }

@@ -29,12 +29,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m4(amount) => "${Intl.plural(amount, zero: 'There are no free parking spots. ', one: 'There is one free parking spot. ', other: 'There are ${amount} free parking spots. ')}";
 
-  static m5(version) => "There is a new app version: ${version}";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "couldNotConnect" : MessageLookupByLibrary.simpleMessage("Could not connect to parkomat."),
-    "couldNotFetchStatsFromParkomat" : MessageLookupByLibrary.simpleMessage("Could not fetch stats from parkomat."),
+    "changelog" : MessageLookupByLibrary.simpleMessage("Changelog"),
+    "changelogGoBack" : MessageLookupByLibrary.simpleMessage("Okay"),
+    "checkConnection" : MessageLookupByLibrary.simpleMessage("Could not find parkomat."),
+    "checkUrl" : MessageLookupByLibrary.simpleMessage("Invalid url."),
+    "couldNotConnect" : MessageLookupByLibrary.simpleMessage("No internet connection."),
+    "installUpdateNow" : MessageLookupByLibrary.simpleMessage("Install update now."),
     "lastUpdateAt" : m0,
     "lastUpdateLastMonth" : MessageLookupByLibrary.simpleMessage("Last update: Last month"),
     "lastUpdateLastWeek" : MessageLookupByLibrary.simpleMessage("Last update: Last week"),
@@ -43,13 +45,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "lastUpdateToday" : MessageLookupByLibrary.simpleMessage("Last update: Today"),
     "lastUpdateYesterday" : MessageLookupByLibrary.simpleMessage("Last update: Yesterday"),
     "normalOnesAnd" : m1,
-    "offline" : MessageLookupByLibrary.simpleMessage("OFFLINE"),
     "onTheLifts" : m2,
-    "online" : MessageLookupByLibrary.simpleMessage("ONLINE"),
     "parkingSpots" : m3,
     "sincerely" : MessageLookupByLibrary.simpleMessage("\nSincerely -- your parkomat."),
     "thereAreFreeParkingSpots" : m4,
-    "thereIsANewAppVersion" : m5,
+    "thereIsANewAppVersion" : MessageLookupByLibrary.simpleMessage("There is a new app version available"),
     "urlToParkomat" : MessageLookupByLibrary.simpleMessage("URL to your parkomat")
   };
 }
