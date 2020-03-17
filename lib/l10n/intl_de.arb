@@ -1,7 +1,11 @@
 {
+  "_locale": "de",
+  "changelog": "Changelog",
+  "changelogGoBack": "Okay",
   "checkConnection": "Parkomat nicht gefunden.",
   "checkUrl": "Keine gültige Url.",
   "couldNotConnect": "Keine Internetverbindung.",
+  "installUpdateNow": "Update jetzt installieren."
   "lastUpdateAt": "Letztes Update: {datetime}",
   "lastUpdateLastMonth": "Letztes Update: Letzter Monat",
   "lastUpdateLastWeek": "Letztes Update: Letzte Woche",
@@ -16,7 +20,4 @@
   "thereAreFreeParkingSpots": "{amount, plural, zero{Es gibt keine freien Parkplätze. } one{Es gibt einen freien Parkplatz. } other{Es gibt {amount} freie Parkplätze. }}",
   "thereIsANewAppVersion": "Eine neue Version der App ist verfügbar.",
   "urlToParkomat": "Url to parkomat",
-  "changelog": "Changelog",
-  "changelogGoBack": "Okay",
-  "installUpdateNow": "Update jetzt installieren."
 }

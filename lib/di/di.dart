@@ -44,7 +44,7 @@ void prepareSharedPreferences(GetIt sl) async {
 void prepareBlocs(GetIt sl) async {
   sl.registerSingleton<HomeBloc>(HomeBloc());
   sl.registerSingleton<SettingsBloc>(SettingsBloc(sl<ParkomatCoreClient>(), sl<SharedPreferenceCache>(), sl<HomeBloc>()));
-  sl.registerSingleton<MainBloc>(MainBloc(sl<SharedPreferenceCache>()));
+  sl.registerSingleton<MainBloc>(MainBloc(sl<SharedPreferenceCache>(), sl<HomeBloc>()));
 }
 
 void prepareDi() async {

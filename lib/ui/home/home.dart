@@ -1,16 +1,16 @@
-import 'package:connectivity/connectivity.dart';
-import 'package:flushbar/flushbar.dart';
+import 'package:connectivity/connectivity.dart' show Connectivity, ConnectivityResult;
+import 'package:flushbar/flushbar.dart' show Flushbar;
 import 'package:flutter/material.dart' show BuildContext, Colors, Column, Container, Expanded, FloatingActionButton, Icon, Icons, Navigator, RefreshIndicator, Scaffold, Stack, State, StatefulWidget, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocListener;
 import 'package:parkomat/bloc/home/home_bloc.dart' show CheckConnection, HomeBloc, HomeState, RefreshEvent;
 import 'package:parkomat/generated/l10n.dart' show S;
 import 'package:parkomat/main.dart' show sl;
 import 'package:parkomat/routes.dart' show RouteBuilder, Routes;
-import 'package:parkomat/widget/connectivity_widget/connectivity_widget.dart';
+import 'package:parkomat/widget/connectivity_widget/connectivity_widget.dart' show ConnectivityWidget;
 import 'package:parkomat/widget/parkomat_body/parkomat_body.dart' show ParkomatBody;
 import 'package:parkomat/widget/parkomat_footer/parkomat_footer.dart' show ParkomatFooter;
 import 'package:parkomat/widget/parkomat_header/parkomat_header.dart' show ParkomatHeader;
-import 'package:parkomat/widget/scrollable_container/scrollable_container.dart';
+import 'package:parkomat/widget/scrollable_container/scrollable_container.dart' show ScrollableContainer;
 import 'package:parkomat/widget/share_button/share_button.dart' show ShareButton;
 
 class HomeScreen extends StatefulWidget {

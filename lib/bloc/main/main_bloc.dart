@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart' show Bloc;
 import 'package:equatable/equatable.dart' show Equatable;
 import 'package:package_info/package_info.dart' show PackageInfo;
+import 'package:parkomat/bloc/home/home_bloc.dart';
 import 'package:parkomat/data/sharedpref/shared_preference_cache.dart' show SharedPreferenceCache;
 import 'package:pub_semver/pub_semver.dart' show Version;
 
@@ -9,8 +10,9 @@ part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   final SharedPreferenceCache _sharedPreferenceCache;
+  final HomeBloc _homeBloc;
 
-  MainBloc(this._sharedPreferenceCache);
+  MainBloc(this._sharedPreferenceCache, this._homeBloc);
 
   @override
   MainState get initialState => InitialMainState();
@@ -39,6 +41,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
     if (latestVersion < currentVersion) {
       yield ShowChangelog();
       await _sharedPreferenceCache.setVersion(currentVersion.toString());
+    } else {
+      _homeBloc.add(RefreshEvent());
     }
   }
 }

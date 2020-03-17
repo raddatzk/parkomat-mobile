@@ -1,7 +1,7 @@
 name: parkomat
 description: A beautiful app for your parkomat.
 
-version: 1.7.0
+version: 1.7.1
 
 environment:
   sdk: ">=2.7.0"
